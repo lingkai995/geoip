@@ -27,7 +27,7 @@ jobs:
           curl -fSL -o ./v2dat "https://raw.githubusercontent.com/xukecheng/scripts/main/v2dat"
           chmod +x ./v2dat
           ./v2dat unpack geosite -o ./output/ -f apple "$TMPDIR/geosite.dat"
-          mv ./output/geosite-apple.txt ./output/apple-cn.txt
+          mv ./output/geosite_apple.txt ./output/apple-cn.txt
           rm -rf ./v2dat "$TMPDIR"
         shell: bash
 
