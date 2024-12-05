@@ -41,10 +41,13 @@ jobs:
       # 将文件推送到固定的 release 分支以提供下载地址
       - name: Push file to release branch
         run: |
+          git init
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -b release
           mv ./output/apple-cn.txt ./apple-cn.txt
           git add apple-cn.txt
           git commit -m "Update apple-cn.txt"
-          git push -f "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}" release
+          git remote add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          git push -f origin release
+
